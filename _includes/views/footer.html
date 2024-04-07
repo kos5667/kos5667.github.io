@@ -4,7 +4,10 @@
   <div class="wrapper">
     <div class="site-footer-inner">
         {% include views/social-icons.html %}
-<!--        <div class="footer-description"><a href="{{ site.github.url }}/">{{ site.title }} | {{ site.description }} by {{ site.author }}</a></div>-->
+        <div class="footer-description">
+        <span>email: {{ site.email }}</span>
+<!--          <a href="{{ site.github.url }}/">{{ site.title }} | {{ site.description }} by {{ site.author }}</a>-->
+        </div>
 
 <!--        {%- assign currentYear = 'now' | date: "%Y" -%}-->
 <!--        {%- assign copyright = site.copyright-->
