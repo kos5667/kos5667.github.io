@@ -27,10 +27,15 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #favicon: "./favicons.png" # the favicon for your site
-#asset_url: "/assets"
+asset_url: "/assets"
 
-twitter_username: jekyllrb
-github_username:  kos5667
+#twitter_username: jekyllrb
+#github_username:  kos5667
+# https://fontawesome.com/v4/
+social:
+  - {icon: 'github',     link: 'https://github.com/kos5667'}
+  - {icon: 'linkedin',   link: 'https://www.linkedin.com/in/don-jh1025/'}
+  - {icon: 'instagram',  link: 'https://www.instagram.com/don.jh93/'}
 
 # Build settings
 #theme: jekyll-theme-yat
