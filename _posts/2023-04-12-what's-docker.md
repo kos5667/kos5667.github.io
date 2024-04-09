@@ -62,7 +62,7 @@ tags: [docker, security, protocol]
 
 ## *1. What is Docker?*
 
-![Docker](../assets/images/docker/docker_lxc.png)
+![](/assets/images/docker/docker_lxc.png)
 
 ### Docker
 
@@ -97,7 +97,7 @@ Docker는 Docker Inc.에 의해 개발 된 Go 언어로 작성된 소프트웨�
 
 ### 가상화 개념
 
-<p align="center"><img src="../assets/images/docker/virtualization.png"></p>
+![](/assets/images/docker/virtualization.png)
 
 가상화는 소프트웨어를 사용하여 프로세서, 메모리, 스토리지 등과 같은 단일 컴퓨터의 하드웨어 요소를 일반적으로 가상 머신(VM)이라고 하는 다수의 가상 컴퓨터로 분할할 수 있도록 해주는 컴퓨터 하드웨어 상의 추상화 계층을 구축합니다. 곧 가상화란 물리적인(HW)를 논리적 객체로 추상화 하는 것.
 
@@ -109,7 +109,7 @@ Docker는 Docker Inc.에 의해 개발 된 Go 언어로 작성된 소프트웨�
 
 ## 3. Docker Container
 
-<p align="center"><img src="../assets/images/docker/container.png"></p>
+![](/assets/images/docker/container.png)
 
 ### Container
 
@@ -117,7 +117,7 @@ Docker는 Docker Inc.에 의해 개발 된 Go 언어로 작성된 소프트웨�
 
 **Docker VS VM(Virtual Machine)**
 
-<p align="center"><img src="../assets/images/docker/vm.png"></p>
+![](/assets/images/docker/vm.png)
 
 **Docker Container**
 
@@ -160,8 +160,7 @@ Docker *클라이언트* 는 Docker 컨테이너를 빌드, 실행 및 배포하
 
 Docker 클라이언트와 데몬은 UNIX 소켓 또는 네트워크 인터페이스를 통해 REST API를 사용하여 통신합니다. 또 다른 Docker Client는 컨테이너 세트로 구성된 애플리케이션으로 작업할 수 있는 Docker Compose입니다.
 
-<p align="center"><img src="../assets/images/docker/docker-architecture.png"></p>
-
+![](/assets/images/docker/docker-architecture.png)
 
 ## 5. Docker LifeCycle
 
