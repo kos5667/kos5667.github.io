@@ -43,6 +43,28 @@ remote_theme: "jeffreytse/jekyll-theme-yat"
 plugins:
   - jekyll-feed
 
+# Comments
+# utterances - https://utteranc.es/?installation_id=49450710&setup_action=install
+#utterances:
+#  repo: kos5667/kos5667.github.io
+#  issue_term: url
+#  label: Comment
+#  theme: preferred-color-scheme
+
+# Giscus(https://giscus.app/ko)
+giscus:
+  repo: kos5667/kos5667.github.io
+  repo_id: R_kgDOLpTseg
+  category: Q&A
+  category_id: DIC_kwDOLpTses4CeltF
+  mapping: url
+  strict: 0 # 엄격한 제목 일치 사용(0: N, 1: Y)
+  reactions_enabled: 1 # 메인 포스트에 반응 남기기(0: N, 1: Y)
+  metadata: 0 # Discussion 메타데이터 보내기(0: N, 1: Y)
+  input_position: top # 댓글 위에 댓글 상자 배치(top, bottom)
+  theme: preferred_color_scheme
+  lang: ko
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
