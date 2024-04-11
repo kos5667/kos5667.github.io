@@ -1,10 +1,47 @@
-<!--<script>-->
-<!--    (function () {-->
-<!--        var theme = JSON.parse(sessionStorage.getItem('theme'));-->
-<!--        var color = theme.nightShift ? 'dark' : 'light';-->
-<!--        console.log(color);-->
-<!--    })();-->
-<!--</script>-->
+<div id="comments-div"></div>
+<script>
+    (function () {
+        // 'theme' 정보를 세션 스토리지에서 가져옵니다.
+        // var theme = JSON.parse(sessionStorage.getItem('theme'));
+        // 'nightShift' 값에 따라 'color' 값을 설정합니다.
+        const DARK = 'dark_dimmed', LIGHT = 'light';
+        // let color = theme && theme.nightShift ? DARK : LIGHT;
+        //
+        // // 'giscus' 스크립트 태그를 생성합니다.
+        // const script = document.createElement('script');
+        // script.src = "https://giscus.app/client.js";
+        // script.setAttribute('data-repo', "{{ site.giscus.repo }}");
+        // script.setAttribute('data-repo-id', "{{ site.giscus.repo_id }}");
+        // script.setAttribute('data-category', "{{ site.giscus.category }}");
+        // script.setAttribute('data-category-id', "{{ site.giscus.category_id }}");
+        // script.setAttribute('data-mapping', "{{ site.giscus.mapping }}");
+        // script.setAttribute('data-strict', "{{ site.giscus.strict }}");
+        // script.setAttribute('data-reactions-enabled', "{{ site.giscus.reactions_enabled }}");
+        // script.setAttribute('data-emit-metadata', "{{ site.giscus.metadata }}");
+        // script.setAttribute('data-input-position', "{{ site.giscus.input_position }}");
+        // // 'data-theme' 속성에 'color' 값을 동적으로 설정합니다.
+        // script.setAttribute('data-theme', color);
+        // script.setAttribute('data-lang', "{{ site.giscus.lang }}");
+        // // script.async = true;
+        // script.crossOrigin = "anonymous";
+        //
+        // document.getElementById('comments-div').appendChild(script);
+        // 스크립트 태그를 문서에 추가합니다.
+        // document.body.appendChild(script);
+
+        document.getElementById('theme-switch').addEventListener('change', function(event) {
+            changeGiscusTheme(event.target.checked ? DARK : LIGHT);
+        })
+
+        function changeGiscusTheme(newTheme) {
+            const giscusFrame = document.querySelector('iframe.giscus-frame');
+            if (!giscusFrame) return;
+
+            giscusFrame.contentWindow.postMessage({ setConfig: { theme: newTheme } }, 'https://giscus.app');
+        }
+    })();
+</script>
+
 <!--<div>-->
 <!--    theme-->
 <!--    {%- assign name = 'night_mode' -%}-->
