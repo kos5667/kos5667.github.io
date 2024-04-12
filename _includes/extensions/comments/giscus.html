@@ -1,4 +1,3 @@
-<div id="comments-div"></div>
 <script>
     (function () {
         // 'theme' 정보를 세션 스토리지에서 가져옵니다.
@@ -6,7 +5,6 @@
         // 'nightShift' 값에 따라 'color' 값을 설정합니다.
         const DARK = 'dark_dimmed', LIGHT = 'light';
         // let color = theme && theme.nightShift ? DARK : LIGHT;
-        //
         // // 'giscus' 스크립트 태그를 생성합니다.
         // const script = document.createElement('script');
         // script.src = "https://giscus.app/client.js";
@@ -37,8 +35,6 @@
             const giscusFrame = document.querySelector('iframe.giscus-frame');
             if (!giscusFrame) return;
 
-            console.log(newTheme);
-            console.log(giscusFrame.contentWindow);
             giscusFrame.contentWindow.postMessage({
                 giscus: {
                     setConfig: {
@@ -49,13 +45,6 @@
         }
     })();
 </script>
-
-<!--<div>-->
-<!--    theme-->
-<!--    {%- assign name = 'night_mode' -%}-->
-<!--    {%- include functions.html func='get_value' default='auto' -%}-->
-<!--    {%- assign night_mode = return -%}-->
-<!--</div>-->
 <script src="https://giscus.app/client.js"
         data-repo="{{ site.giscus.repo }}"
         data-repo-id="{{ site.giscus.repo_id }}"
