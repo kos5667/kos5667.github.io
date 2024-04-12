@@ -1,10 +1,9 @@
 ---
 layout: post
 title:  "What is Docker?"
+subtitle: Docker 이론 및 활용
 date:   2023-04-12 10:12:00 +0900
-subtitle: Docker 이론 및 활용 
 excerpt_image: "../assets/images/docker/docker.png"
-categories: Docker
 banner:
   image: "../assets/images/docker/banner-docker.png"
   loop: true
@@ -16,6 +15,7 @@ banner:
   min_height: "38vh"
   heading_style: "font-size: 4.25em; font-weight: bold; text-decoration: underline"
   subheading_style: "color: gold"
+categories: Docker
 tags: [docker]
 top: 1
 ---
