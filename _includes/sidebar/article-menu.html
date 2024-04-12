@@ -24,11 +24,30 @@
 
     // Generate post menu
     var menuHTML = '';
+
+    // NodeList를 배열로 변환하고, 가장 높은 값을 찾음
+    const highestHeader = Array.from(headings).reduce((highest, current) => {
+      const currentRank = parseInt(current.tagName.substring(1));
+      const highestRank = highest ? parseInt(highest.tagName.substring(1)) : Infinity;
+
+      // 현재 태그의 순위가 더 높은 경우 (숫자가 더 작은 경우), 현재 태그를 반환
+      return currentRank < highestRank ? current : highest;
+    }, null); // 초기 값은 null로 설정
+
+    // 가장 높은 태그의 결과를 출력
     for (var i = 0; i < headings.length; i++) {
       var h = headings[i];
-      menuHTML += (
-        '<li class="h-' + h.tagName.toLowerCase() + '">'
-        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+      // console.log(h.tagName.toLowerCase());
+      let content;
+      let padding = (h.tagName.substring(1) - highestHeader.tagName.substring(1)) * 15;
+      if (highestHeader.tagName.substring(1) === h.tagName.substring(1)) {
+        content = ('<li class="h-' + h.tagName.toLowerCase() + '">'
+                + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>')
+      } else {
+        content = ('<li class="h-' + h.tagName.toLowerCase() + '" style="padding-left: '+padding+'px;">'
+                + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>')
+      }
+      menuHTML += content;
     }
 
     menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
