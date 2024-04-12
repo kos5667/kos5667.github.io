@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Git Tag를 활용하는 방법."
+title:  "Git Tag를 활용하는 방법"
 date:   2024-03-13 09:00:00 +0900
 excerpt_image: "../assets/images/git-tag.png"
 categories: Git
