@@ -42,6 +42,7 @@ social:
 remote_theme: "jeffreytse/jekyll-theme-yat"
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 # Comments
 # utterances - https://utteranc.es/?installation_id=49450710&setup_action=install
@@ -84,3 +85,6 @@ giscus:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# Search Console
+google-site-verification: UfQe4a2Al1OOfPusFjfdzFl2hSqDIYsk3e8Z3Q2-JKc

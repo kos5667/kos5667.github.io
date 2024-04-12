@@ -35,3 +35,7 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 # jekyll theme
 gem "jekyll-theme-yat"
 
+# Site map
+gem 'jekyll-sitemap'
+
+
