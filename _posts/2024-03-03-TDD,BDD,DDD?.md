@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "TDD, BDD, DDD?"
+title:  "TDD,BDD,DDD?"
 date:   2024-03-01 08:00:00 +0900
 excerpt_image: "../assets/images/TDD,BDD,DDD.png"
 categories: Development-Methodology 
