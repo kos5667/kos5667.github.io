@@ -5,7 +5,12 @@
     <div class="site-footer-inner">
         {% include views/social-icons.html %}
         <div class="footer-description">
-        <span>email: {{ site.email }}</span>
+            <div>
+                <span>email: {{ site.email }}</span>
+            </div>
+            <div>
+                <span>{{ site.description }}</span>
+            </div>
 <!--          <a href="{{ site.github.url }}/">{{ site.title }} | {{ site.description }} by {{ site.author }}</a>-->
         </div>
 
