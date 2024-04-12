@@ -42,7 +42,7 @@ social:
 remote_theme: "jeffreytse/jekyll-theme-yat"
 plugins:
   - jekyll-feed
-#  - jekyll-sitemap
+  - jekyll-sitemap
 
 # Comments
 # utterances - https://utteranc.es/?installation_id=49450710&setup_action=install
