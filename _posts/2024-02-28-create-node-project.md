@@ -14,7 +14,7 @@ banner:
   min_height: "38vh"
   heading_style: "font-size: 4.25em; font-weight: bold; text-decoration: underline"
   subheading_style: "color: gold"
-categories: Node.js
+categories: Node
 tags: [node.js, express, javascript, npm, project]
 ---
 'Javascript'와 'Express'를 이용한 Node.js 프로젝트를 만드는 방법은 다음과 같습니다. 이 가이드는 Node.js 환경 설정부터 Express 애플리케이션의 기본 구조를 설정하는 단계까지를 다룹니다.
