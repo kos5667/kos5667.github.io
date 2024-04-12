@@ -37,7 +37,15 @@
             const giscusFrame = document.querySelector('iframe.giscus-frame');
             if (!giscusFrame) return;
 
-            giscusFrame.contentWindow.postMessage({ setConfig: { theme: newTheme } }, 'https://giscus.app');
+            console.log(newTheme);
+            console.log(giscusFrame.contentWindow);
+            giscusFrame.contentWindow.postMessage({
+                giscus: {
+                    setConfig: {
+                        theme: newTheme
+                    }
+                }
+            }, 'https://giscus.app');
         }
     })();
 </script>

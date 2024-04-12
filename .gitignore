@@ -15,4 +15,4 @@ _site
 vendor
 
 # ingore file
-/_posts/template.md
+/_posts/2000-01-01-template.md
