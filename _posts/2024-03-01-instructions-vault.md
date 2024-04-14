@@ -4,7 +4,7 @@ title: "Vault 란?"
 date: 2024-03-03 08:00:00 +0900
 excerpt_image: "../assets/images/vault1.png"
 categories: Security
-tags: [vault, security, protocol]
+tags: [Vault, Security, Protocol]
 ---
 Vault는 HashiCorp에 의해 개발된 오픈 소스 도구로, 시크릿 관리, 데이터 암호화, 액세스 관리와 같은 기능을 제공하여 시스템 전반의 보안을 강화하는 데 사용됩니다. 
 Vault를 사용하면 개발자와 시스템 관리자는 API 키, 비밀번호, 인증서와 같은 민감한 정보를 안전하게 저장하고, 접근 권한을 제어할 수 있습니다. 

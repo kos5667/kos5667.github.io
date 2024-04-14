@@ -4,7 +4,7 @@ title:  "Git Stash를 활용하는 방법."
 date:   2024-03-12 09:00:00 +0900
 excerpt_image: "../assets/images/git-stash.png"
 categories: Git
-tags: [git, stash]
+tags: [Git, Stash]
 ---
 ## Git Stash.
 `git stash`는 Git에서 제공하는 매우 유용한 기능 중 하나로, 작업 중인 변경 사항을 임시로 저장하고 나중에 다시 적용할 수 있게 해줍니다. 이 기능은 브랜치 간에 이동해야 하거나 다른 작업을 처리하기 전에 현재 작업 중인 변경 사항을 깨끗하게 보관하고 싶을 때 유용합니다.

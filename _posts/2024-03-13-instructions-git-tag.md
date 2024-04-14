@@ -4,7 +4,7 @@ title:  "Git Tag를 활용하는 방법"
 date:   2024-03-13 09:00:00 +0900
 excerpt_image: "../assets/images/git-tag.png"
 categories: Git
-tags: [git, tag]
+tags: [Git, Tag]
 ---
 ### Git tag
 운영 배포 시 Tag를 이용해 릴리즈를 관리하고 있습니다. 오랜 시간 동안 쌓인 릴리즈 태그와 좀 더 효율적으로 태그를 관리하기 위해 작성합니다.
