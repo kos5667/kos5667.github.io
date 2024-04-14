@@ -15,7 +15,7 @@ banner:
   heading_style: "font-size: 4.25em; font-weight: bold; text-decoration: underline"
   subheading_style: "color: gold"
 categories: Node.js
-tags: [node.js, express, javascript, npm, project]
+tags: [nodejs, express, javascript, npm, project]
 ---
 
 ## Node.js & Express
