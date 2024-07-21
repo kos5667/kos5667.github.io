@@ -1,4 +1,7 @@
 User-agent: *
+Disallow: /notion
+
+User-agent: *
 Allow: /
 
 Sitemap: https://kos5667.github.io/sitemap.xml
