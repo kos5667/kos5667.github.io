@@ -118,14 +118,22 @@
             <h1 class="page-banner-heading">
               {{ heading | default: page.title | escape }}
             </h1>
-            <h2 class="page-banner-subheading">
-              {{ subheading | default: page.subtitle | escape }}
-            </h2>
+            <h2 class="page-banner-subheading" id="subheading"></h2>
           </div>
 
         {%- endif -%}
       </div>
+      <script type="application/javascript">
+        (function () {
+          let subHeading = `{{ subheading | default: page.subtitle | escape }}`;
+          if (subHeading.includes('|')) {
+            const arr = subHeading.split('|');
+            subHeading = arr[Math.floor(Math.random() * arr.length)];
+          }
+
+          document.getElementById('subheading').innerText = subHeading
+        })();
+      </script>
     </div>
   </section>
 {%- endif -%}
-
