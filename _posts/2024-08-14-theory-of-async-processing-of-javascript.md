@@ -128,7 +128,7 @@ Node.js는 서버 측에서 자바스크립트를 실행하는 런타임 환경�
 4. **반복**: 이 과정이 계속해서 반복됩니다. Call Stack이 비어 있을 때마다 Event Queue에 있는 함수들이 하나씩 실행됩니다.
 
 ### 실행 순서 예시
-![](../assets/images/2024-08-14-theory-of-async-processing-of-javascript2.png)
+![](/assets/images/2024-08-14-theory-of-async-processing-of-javascript2.png)
 
 ```javascript
 console.log('Start');
