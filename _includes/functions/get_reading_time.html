@@ -29,7 +29,11 @@
 {% if hours > 0 %}
   {% assign unit = "시간" %}
   {% if hours > 1 %}
+    {% comment %}
     {% assign unit = unit | append: " 이상" %}
+    {% endcomment %}
+
+    {% assign mins = mins | plus: 1 %}
   {% endif %}
   {% assign return = return
     | append: " "
@@ -39,7 +43,11 @@
 
 {% assign unit = "분" %}
 {% if mins > 1 %}
+  {% comment %}
   {% assign unit = unit | append: " 이상" %}
+  {% endcomment %}
+
+  {% assign mins = mins | plus: 1 %}
 {% endif %}
 {% assign return = return
   | append: " "
