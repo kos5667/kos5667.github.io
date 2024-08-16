@@ -27,6 +27,8 @@
   | default: default_image
   | default: '/assets/images/default-image.jpeg' -%}
 
+{%- assign writing = post.writing -%}
+
 <li class="post-item {{ post_item_class }}">
   <h2 class="post-title">
     <a class="post-link" href="{{ post_url }}">
@@ -40,6 +42,9 @@
     <span class="post-author left-vsplit"><i class="fa fa-pencil"></i> {{ post.author | escape }}</span>
     {%- endif -%}
     <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> {{ reading_time }}</span>
+    {%- if post.writing -%}
+    <span class="post-reading-time left-vsplit"><i class="fa fa-pencil-square-o"></i> 작성중</span>
+    {%- endif -%}
   </div>
   <div class="post-excerpt">
     {%- if post_image and post_image != 'NO_EXCERPT_IMAGE' -%}
