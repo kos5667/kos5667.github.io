@@ -24,26 +24,24 @@
 {% assign hours = total_mins | divided_by: 60 %}
 {% assign mins = total_mins | modulo: 60 %}
 
-{% assign return = "About" %}
+{% assign return = "예상 소요시간" %}
 
 {% if hours > 0 %}
-  {% assign unit = "hour" %}
+  {% assign unit = "시간" %}
   {% if hours > 1 %}
-    {% assign unit = unit | append: "s" %}
+    {% assign unit = unit | append: " 이상" %}
   {% endif %}
   {% assign return = return
     | append: " "
     | append: hours
-    | append: " "
     | append: unit %}
 {% endif %}
 
-{% assign unit = "min" %}
+{% assign unit = "분" %}
 {% if mins > 1 %}
-  {% assign unit = unit | append: "s" %}
+  {% assign unit = unit | append: " 이상" %}
 {% endif %}
 {% assign return = return
   | append: " "
   | append: mins
-  | append: " "
   | append: unit %}
