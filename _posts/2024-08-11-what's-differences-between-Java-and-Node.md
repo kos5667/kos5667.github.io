@@ -1,4 +1,13 @@
-(작성중)
+---
+layout: post
+title: "Java(Spring)과 Node.js의 차이"
+date: 2024-08-20 22:00:00 +0900
+excerpt_image: "../assets/images/excerpt-2024-08-14-theory-of-async-processing-of-javascript.png"
+categories: javascript
+allow_publishing: false
+writing: true
+tags: [nodejs, javascript, async, await, cs]
+---
 # Java와 Node.js의 주요 차이점
 
 Java는 Multi Thread를 지원하는 동기적 언어로 주로 대형 엔터프라이즈급 애플리케이션에서 사용됩니다.
