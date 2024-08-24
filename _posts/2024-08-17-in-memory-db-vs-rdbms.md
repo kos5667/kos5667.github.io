@@ -1,6 +1,6 @@
 ---
 layout: post
-title: In-Memory DB VS Storage DB
+title: Memory DB VS Storage DB
 subtitle: Memory DB와 Storage DB의 차이는?
 excerpt_image: "../assets/images/excerpt-2024-08-24-in-memory-db-vs-storage-db1.png"
 categories: CS
