@@ -6,7 +6,7 @@ excerpt_image: "../assets/images/excerpt-2024-08-24-in-memory-db-vs-storage-db1.
 categories: CS
 tags: [Redis, DB, RDBMS, Storage, Memory]
 #allow_publishing: false
-writing: true
+writing: false
 ---
 ## Momory DB와 Storage DB란?
 
