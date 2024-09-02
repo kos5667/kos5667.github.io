@@ -19,3 +19,11 @@ writing: false
 2010년대에는 Cloud Computing이 대두되면서, Load Balancing이 다시 한번 중요한 역할을 하게 되었습니다. AWS, Google Cloud, Microsoft Azure와 같은 Cloud Service는 Load Balancing을 위한 다양한 서비스를 제공하며, 이를 통해 사용자는 탄력적으로 자원을 관리할 수 있게 되었습니다.
 
 Load Balancing은 Network 기술 발전과 함께 꾸준히 진화해 왔으며, 오늘날에는 Server의 가용성, 성능 최적화, 장애 대응 등을 위한 핵심 기술로 자리 잡고 있습니다.
+
+## Network Traffic 분산 기술
+
+### SLB(Server Load Balacing)
+
+### DNS
+
+### GSLB
