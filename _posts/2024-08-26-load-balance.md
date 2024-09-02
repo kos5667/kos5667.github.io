@@ -27,3 +27,13 @@ Load Balancing은 Network 기술 발전과 함께 꾸준히 진화해 왔으며,
 ### DNS
 
 ### GSLB
+
+
+### 
+
+## Reference.
+- https://www.joinc.co.kr/w/man/12/GSLB
+- https://www.samsungsds.com/kr/network-gslb/gslb.html
+- https://www.cloudflare.com/ko-kr/learning/ddos/glossary/open-systems-interconnection-model-osi/
+- https://www.indusface.com/learning/osi-model/
+- https://aws.amazon.com/ko/what-is/osi-model/
