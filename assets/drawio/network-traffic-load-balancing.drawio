@@ -1,4 +1,33 @@
-<mxfile host="Electron" modified="2024-09-02T00:55:21.049Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.3.7 Chrome/112.0.5615.204 Electron/24.5.0 Safari/537.36" etag="js40kQttwTqWeqb7pgie" version="21.3.7" type="device" pages="3">
+<mxfile host="Electron" modified="2024-09-02T23:55:36.392Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.3.7 Chrome/112.0.5615.204 Electron/24.5.0 Safari/537.36" etag="_dLfB6jDfTdWusaJTWyX" version="21.3.7" type="device" pages="4">
+  <diagram id="jz16irYFKrQejphYIx4W" name="SLB-1">
+    <mxGraphModel dx="1434" dy="974" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Q9Ne0mzi5YAhv4Nts_D4-1" value="Client IP" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="399" y="240" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Q9Ne0mzi5YAhv4Nts_D4-2" value="LoadBalancer(L4/L7)" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="304" y="515" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="J1gf1bT1v3RNKF3Jf1IN-1" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="354" y="358" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="MdG0dYB2qCpZkNvjvYic-2" value="Server #1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="199" y="660" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="MdG0dYB2qCpZkNvjvYic-3" value="Server #2" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="309" y="660" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="MdG0dYB2qCpZkNvjvYic-4" value="Server #3" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="419" y="660" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="MdG0dYB2qCpZkNvjvYic-5" value="Server #4" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="529" y="660" width="100" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
   <diagram name="GSLB" id="f_xy8V9YfMhNHVLvLOBR">
     <mxGraphModel dx="1434" dy="2143" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -45,37 +74,37 @@
         <mxCell id="2yTkO6SloV_ZWmSy8_uP-19" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;dashed=1;" parent="1" vertex="1">
           <mxGeometry x="224" y="280" width="500" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="2yTkO6SloV_ZWmSy8_uP-26" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Syntax Layer&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;SSL, SSH, IMAP, FTP, MPEG, JPEG&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="2yTkO6SloV_ZWmSy8_uP-19" vertex="1">
+        <mxCell id="2yTkO6SloV_ZWmSy8_uP-26" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Syntax Layer(데이터 포맷 변환, 암호화)&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;SSL, SSH, IMAP, FTP, MPEG, JPEG&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="2yTkO6SloV_ZWmSy8_uP-19" vertex="1">
           <mxGeometry x="20" y="10" width="466" height="60" as="geometry" />
         </mxCell>
         <mxCell id="2yTkO6SloV_ZWmSy8_uP-20" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;" parent="1" vertex="1">
           <mxGeometry x="224" y="370" width="500" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="2yTkO6SloV_ZWmSy8_uP-27" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Synch &amp;amp; Send to Port&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;API&#39;s, Sockets, WinSock&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="2yTkO6SloV_ZWmSy8_uP-20" vertex="1">
+        <mxCell id="2yTkO6SloV_ZWmSy8_uP-27" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Synch &amp;amp; Send to Port(연결 관리, 세션 설정)&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;API&#39;s, Sockets, WinSock&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="2yTkO6SloV_ZWmSy8_uP-20" vertex="1">
           <mxGeometry x="20" y="10" width="466" height="60" as="geometry" />
         </mxCell>
         <mxCell id="2yTkO6SloV_ZWmSy8_uP-21" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;dashed=1;" parent="1" vertex="1">
           <mxGeometry x="224" y="460" width="500" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="2yTkO6SloV_ZWmSy8_uP-28" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;End-to-end Connections&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;TCP, UDP&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="2yTkO6SloV_ZWmSy8_uP-21" vertex="1">
+        <mxCell id="2yTkO6SloV_ZWmSy8_uP-28" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;End-to-end Connections(TCP/UDP, 포트 번호)&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;TCP, UDP&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="2yTkO6SloV_ZWmSy8_uP-21" vertex="1">
           <mxGeometry x="20" y="10" width="466" height="60" as="geometry" />
         </mxCell>
         <mxCell id="2yTkO6SloV_ZWmSy8_uP-22" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=1;" parent="1" vertex="1">
           <mxGeometry x="224" y="550" width="500" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="2yTkO6SloV_ZWmSy8_uP-29" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Packets&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;IP, ICMP, IPSec, IGMP&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="2yTkO6SloV_ZWmSy8_uP-22" vertex="1">
+        <mxCell id="2yTkO6SloV_ZWmSy8_uP-29" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Packets(IP 주소, 라우팅)&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;IP, ICMP, IPSec, IGMP&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="2yTkO6SloV_ZWmSy8_uP-22" vertex="1">
           <mxGeometry x="20" y="10" width="466" height="60" as="geometry" />
         </mxCell>
         <mxCell id="2yTkO6SloV_ZWmSy8_uP-23" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;dashed=1;" parent="1" vertex="1">
           <mxGeometry x="224" y="640" width="500" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="2yTkO6SloV_ZWmSy8_uP-30" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Frames&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Ethernet, PPP, Switch, Bridge&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="2yTkO6SloV_ZWmSy8_uP-23" vertex="1">
+        <mxCell id="2yTkO6SloV_ZWmSy8_uP-30" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Frames(MAC 주소, 프레임)&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Ethernet, PPP, Switch, Bridge&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="2yTkO6SloV_ZWmSy8_uP-23" vertex="1">
           <mxGeometry x="20" y="10" width="466" height="60" as="geometry" />
         </mxCell>
         <mxCell id="2yTkO6SloV_ZWmSy8_uP-24" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" parent="1" vertex="1">
           <mxGeometry x="224" y="730" width="500" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="2yTkO6SloV_ZWmSy8_uP-31" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Physical Structure&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Coax, Fiber, Wireless, Hubs, Repeaters&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="2yTkO6SloV_ZWmSy8_uP-24" vertex="1">
+        <mxCell id="2yTkO6SloV_ZWmSy8_uP-31" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Physical Structure(전기적 신호, 물리적 장치)&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Coax, Fiber, Wireless, Hubs, Repeaters&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="2yTkO6SloV_ZWmSy8_uP-24" vertex="1">
           <mxGeometry x="20" y="10" width="466" height="60" as="geometry" />
         </mxCell>
         <mxCell id="2yTkO6SloV_ZWmSy8_uP-2" value="응용 계층&lt;br style=&quot;font-size: 14px;&quot;&gt;Application Layer" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=14;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;" parent="1" vertex="1">
@@ -120,7 +149,7 @@
         <mxCell id="2yTkO6SloV_ZWmSy8_uP-15" value="1 Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" parent="1" vertex="1">
           <mxGeometry x="144" y="710" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="2yTkO6SloV_ZWmSy8_uP-25" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;End User Layer&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;HTTP, FTP, IRC, SSH, DNS&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="1" vertex="1">
+        <mxCell id="2yTkO6SloV_ZWmSy8_uP-25" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;End User Layer&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;HTTP, FTP, IRC, SSH, DNS, SMTP 등 애플리케이션 프로토콜&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" parent="1" vertex="1">
           <mxGeometry x="244" y="200" width="466" height="60" as="geometry" />
         </mxCell>
       </root>
