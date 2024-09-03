@@ -23,6 +23,13 @@ Load Balancing은 Network 기술 발전과 함께 꾸준히 진화해 왔으며,
 ## Network Traffic 분산 기술
 
 ### SLB(Server Load Balacing)
+SLB는 하나의 서버에 과도하게 요청이 몰리는 것을 방지하기 위해 여러 서버에 트래픽을 분산시키는 기술로, 동일한 데이터센터 내에서 작동하며, 여러 서버에 걸쳐 걸쳐 클라이언트 요청을 효율적으로 분배합니다.
+
+#### 동작원리
+
+#### DSR (Direct Server Return) Mode
+
+#### Proxy(In-line) Mode
 
 ### DNS
 
@@ -31,7 +38,8 @@ Load Balancing은 Network 기술 발전과 함께 꾸준히 진화해 왔으며,
 
 ### 
 
-## Reference.
+-----
+### Reference.
 - https://www.joinc.co.kr/w/man/12/GSLB
 - https://www.samsungsds.com/kr/network-gslb/gslb.html
 - https://www.cloudflare.com/ko-kr/learning/ddos/glossary/open-systems-interconnection-model-osi/
