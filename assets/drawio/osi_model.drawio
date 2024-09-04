@@ -1,0 +1,94 @@
+<mxfile host="Electron" modified="2024-09-04T00:21:19.766Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.3.7 Chrome/112.0.5615.204 Electron/24.5.0 Safari/537.36" etag="bNo8exmLSX6jpKNWqVnt" version="21.3.7" type="device">
+  <diagram name="OSI7Layer" id="Pk2Nqq6hA-qxYzMxuFIf">
+    <mxGraphModel dx="1434" dy="974" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-2" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="224" y="190" width="500" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="224" y="280" width="500" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-4" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Syntax Layer(데이터 포맷 변환, 암호화)&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;SSL, SSH, IMAP, FTP, MPEG, JPEG&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="GMfd1HaKMaTsiqz8dajo-3">
+          <mxGeometry x="20" y="10" width="466" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-5" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="224" y="370" width="500" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-6" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Synch &amp;amp; Send to Port(연결 관리, 세션 설정)&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;API&#39;s, Sockets, WinSock&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="GMfd1HaKMaTsiqz8dajo-5">
+          <mxGeometry x="20" y="10" width="466" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-7" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="224" y="460" width="500" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-8" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;End-to-end Connections(TCP/UDP, 포트 번호)&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;TCP, UDP&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="GMfd1HaKMaTsiqz8dajo-7">
+          <mxGeometry x="20" y="10" width="466" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-9" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="224" y="550" width="500" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-10" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Packets(IP 주소, 라우팅)&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;IP, ICMP, IPSec, IGMP&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="GMfd1HaKMaTsiqz8dajo-9">
+          <mxGeometry x="20" y="10" width="466" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-11" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="224" y="640" width="500" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-12" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Frames(MAC 주소, 프레임)&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Ethernet, PPP, Switch, Bridge&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="GMfd1HaKMaTsiqz8dajo-11">
+          <mxGeometry x="20" y="10" width="466" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-13" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="224" y="730" width="500" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-14" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Physical Structure(전기적 신호, 물리적 장치)&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;Coax, Fiber, Wireless, Hubs, Repeaters&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="GMfd1HaKMaTsiqz8dajo-13">
+          <mxGeometry x="20" y="10" width="466" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-15" value="응용 계층&lt;br style=&quot;font-size: 14px;&quot;&gt;Application Layer" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=14;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="104" y="200" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-16" value="7 Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="144" y="170" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-17" value="표현 계층&lt;br style=&quot;font-size: 14px;&quot;&gt;PresentationLayer" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=14;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="104" y="290" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-18" value="6 Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="144" y="260" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-19" value="세션 계층&lt;br style=&quot;font-size: 14px;&quot;&gt;Session Layer" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=14;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="104" y="380" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-20" value="5 Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="144" y="350" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-21" value="전송 계층&lt;br style=&quot;font-size: 14px;&quot;&gt;Transport Layer" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=14;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="104" y="470" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-22" value="4 Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="144" y="440" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-23" value="네트워크 계층&lt;br style=&quot;font-size: 14px;&quot;&gt;Network Layer" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=14;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="104" y="560" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-24" value="3 Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="144" y="530" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-25" value="데이터 링크 계층&lt;br style=&quot;font-size: 14px;&quot;&gt;Data Link Layer" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=14;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="104" y="650" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-26" value="2 Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="144" y="620" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-27" value="물리 계층&lt;br style=&quot;font-size: 14px;&quot;&gt;Physical Layer" style="rounded=1;whiteSpace=wrap;html=1;fontStyle=1;fontSize=14;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="104" y="740" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-28" value="1 Layer" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="144" y="710" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="GMfd1HaKMaTsiqz8dajo-29" value="&lt;ul style=&quot;font-size: 15px;&quot;&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;End User Layer&lt;/li&gt;&lt;li style=&quot;font-size: 15px;&quot;&gt;HTTP, FTP, IRC, SSH, DNS, SMTP 등 애플리케이션 프로토콜&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="244" y="200" width="466" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
