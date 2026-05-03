@@ -15,9 +15,11 @@
 - Server, Client, Batch 독립 배포 체계 확립, k8s YAML 표준화 및 CI/CD 개선으로 배포 안정성 강화
 - Multi Container Pod 구조를 Single Container Pod 구조로 전환해 리소스 효율과 확장성 확보
 - ISMS-P 인증 대응, Vault 기반 Secret 관리 및 암호화/인증 체계 정비
+- Vault 기반 키 관리와 AES-GCM 암호화를 적용해 서버 간 인증 및 민감정보 보호 모듈 구현
 - 통계 산식, 쿼리, 배치 파이프라인 개선과 과거 데이터 복구 체계 구축으로 정합성 이슈 감소
 - 상담톡 코드/아키텍처 현대화(DDD Layered, TypeScript 전환, DI 기반 서비스 구조)로 결합도 감소 및 운영 품질 개선
 - Redis + Bucket4j Token Bucket 기반 분산 Rate Limiting 구현으로 Kubernetes 다중 Pod 환경에서 사용자별 어뷰징 감지 체계 구축, 차단 대신 알람 정책으로 정상 상담원 오차단 0건
+- 상담 종료 후 후처리 중복 실행 문제를 Redis 분산락(SET NX PX)으로 해결, 다중 Pod 환경에서 동일 채팅방 후처리 동시 실행 제어
 
 ### 2023.01 ~ 2024.06 | 서비스 대규모 개편 및 구조 개선, API 분리
 

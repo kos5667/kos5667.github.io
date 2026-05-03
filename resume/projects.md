@@ -10,8 +10,8 @@
 | ---: | :--- |
 | 프로젝트 개요 | 카카오 전사 고객 상담을 처리하는 실시간 상담톡 플랫폼의 서버 개발/운영/고도화 전담. Node.js/TypeScript 상담 서버, Spring Boot 수신 서버, Kubernetes 인프라 전반을 담당하며 대규모 실서비스 환경에서 고가용성과 무중단 운영을 지속 개선. |
 | 기술 스택 | Node.js / TypeScript, Spring Boot 3.4 / Java 21, Redis, RabbitMQ, Kubernetes, Bucket4j, Vault |
-| 문제 해결 | GSLB 트래픽 편중: Multi IDC 도입 후 IDC-A에 트래픽 80% 이상 집중 → DNS 캐싱이 원인임을 파악, Kubernetes 내부 Client Service를 추가해 IPVS 기반 2차 분산으로 균등화 달성 / 배포 구조 개선: Multi-Container Pod(FE+BE 묶음)를 Single-Container Pod로 분리 → 빌드 시간 5~8분에서 FE/BE 각 1분으로 단축, FE Pod 8개 → 2개로 감소 / 분산 Rate Limiting: Kubernetes 다중 Pod 환경에서 사용자별 어뷰징 대응이 불가능한 문제를 Redis + Bucket4j Token Bucket 알고리즘으로 해결. 차단 대신 모니터링 알람을 선택해 정상 사용자 오차단 방지 / 카테고리 초기화 병목: 재귀 처리를 BFS로 전환해 처리 성능 4배 개선 |
-| 성과 | Multi IDC 환경 무중단 운영 구조 확보 / 빌드/배포 시간 단축으로 핫픽스 리드타임 감소 / 정상 사용자 영향 없이 어뷰징 감지/대응 체계 구축 / 카나리/블루그린 배포 운영 기반 확보 |
+| 문제 해결 | GSLB 트래픽 편중: Multi IDC 도입 후 IDC-A에 트래픽 80% 이상 집중 → DNS 캐싱이 원인임을 파악, Kubernetes 내부 Client Service를 추가해 IPVS 기반 2차 분산으로 균등화 달성 / 배포 구조 개선: Multi-Container Pod(FE+BE 묶음)를 Single-Container Pod로 분리 → 빌드 시간 5~8분에서 FE/BE 각 1분으로 단축, FE Pod 8개 → 2개로 감소 / 분산 Rate Limiting: Kubernetes 다중 Pod 환경에서 사용자별 어뷰징 대응이 불가능한 문제를 Redis + Bucket4j Token Bucket 알고리즘으로 해결. 차단 대신 모니터링 알람을 선택해 정상 사용자 오차단 방지 / 후처리 중복 실행: 상담 종료 후 후처리 작업이 다중 Pod에서 동시에 실행되는 문제를 Redis 분산락(SET NX PX)으로 동일 채팅방 후처리의 동시 실행 제어 / 카테고리 초기화 병목: 재귀 처리를 BFS로 전환해 처리 성능 4배 개선 |
+| 성과 | Multi IDC 환경 무중단 운영 구조 확보 / 빌드/배포 시간 단축으로 핫픽스 리드타임 감소 / 정상 사용자 영향 없이 어뷰징 감지/대응 체계 구축 / 카나리/블루그린 배포 운영 기반 확보 / Vault 기반 키 관리와 AES-GCM 암호화 적용으로 서버 간 인증 및 민감정보 보호 모듈 구현 |
 
 ---
 
