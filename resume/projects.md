@@ -8,7 +8,7 @@
 
 개요: 카카오 전사 고객 상담을 처리하는 실시간 상담톡 플랫폼 전담. Spring Boot 기반 수신 서버와 Kubernetes 인프라 전반을 책임지며, Multi IDC 고가용성 구조 설계, 분산 시스템 문제 해결, 레거시 아키텍처 현대화까지 수행. Node.js 상담 서버도 함께 운영.
 
-기술 스택: Spring Boot 3.4 / Java 21, Redis, RabbitMQ, Kubernetes, Bucket4j, Vault, Node.js / TypeScript
+기술 스택: Spring Boot 3.4 / Java 21, MySQL, Redis, RabbitMQ, Kubernetes, Bucket4j, Vault, Node.js / TypeScript / Express / Socket.io
 
 주요 업무
 
@@ -16,7 +16,7 @@
 - 분산 Rate Limiting: Kubernetes 다중 Pod 환경에서 사용자별 어뷰징 감지를 위해 Redis + Bucket4j Token Bucket 알고리즘 설계, 차단 대신 알람 정책으로 정상 사용자 오차단 방지
 - 후처리 중복 실행: 상담 종료 후 다중 Pod 동시 실행 문제를 Redis 분산락(SET NX PX)으로 제어
 - 배포 구조 개선: Multi-Container Pod를 Single-Container Pod로 분리해 빌드 시간 5~8분에서 FE/BE 각 1분으로 단축
-- 아키텍처 현대화: 기술 중심 패키지를 DDD Layered 구조로 전환, Strangler Fig 5단계 이관으로 운영 중단 없이 완료
+- 아키텍처 현대화: 기술 중심 패키지를 DDD Layered 구조로 전환, Strangler Fig 3단계 이관으로 운영 중단 없이 완료
 
 성과
 
@@ -32,7 +32,7 @@
 
 기간: 2022.09 ~ 현재 | 구성: 1명
 
-개요: 카카오 고객센터 운영자가 매일 사용하는 통계 조회/배치/Excel 출력 서비스 운영 전담. 통계 수치 정합성 이슈 반복 대응, Spring Boot 3.5 / Java 21 마이그레이션, Kubernetes 배포 전환을 수행.
+개요: 카카오 고객센터 운영자가 매일 사용하는 통계 조회/배치/Excel 출력 서비스 운영 전담. 통계 수치 정합성 이슈 반복 대응, Spring Boot 3.5 / Java 21 마이그레이션, Kubernetes 배포 전환을 수행. 운영자 의사결정과 직결되는 수치 데이터의 정합성을 책임지며, 오류 데이터로 인한 운영 리스크 최소화를 핵심 목표로 삼았다.
 
 기술 스택: Java 21, Spring Boot 3.5, Spring Security 6, MyBatis, JPA, PostgreSQL, ShedLock, Kubernetes, Vault
 
@@ -45,7 +45,7 @@
 성과
 
 - Spring Boot 3 / Java 21 전환으로 EOL 프레임워크 위험 해소 및 보안 취약점 대응 기반 마련
-- 통계 배치 수치 정합성 확보로 운영 데이터 신뢰도 개선
+- 운영자 일별 통계 수치 불일치 반복 발생을 SQL/배치 파이프라인 원인 추적 후 보정 로직 구현, 신뢰 불가 데이터로 인한 운영 판단 오류 리스크 제거
 - Vault 기반 시크릿 관리 및 세션 보안 설정 적용으로 보안성 강화
 
 ---
