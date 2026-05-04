@@ -69,3 +69,29 @@
 - API 서버 독립 배포로 변경 영향 범위 축소 및 CRMS 본 시스템 부하 분산
 - ACL/CORS/암호화 적용으로 보안 수준 강화
 - OpenAPI 문서화로 협업 커뮤니케이션 비용 절감
+
+---
+
+### 국토교통부 공간정보 플랫폼 및 공공 행정서비스 개발 (재하정보기술)
+
+기간: 2020.06 ~ 2022.04 | 역할: DaaS팀 파트 담당, SaaS팀 파트장
+
+개요: 국토교통부 K-GeoPlatform 1, 2차 구축 사업 및 정부24 행정서비스 개발에 참여. Spring Batch 기반 ETL 파이프라인 구축, 대용량 공간 데이터 처리 최적화, MSA 기반 서비스 설계를 수행했습니다. 2차 사업에서 SaaS팀 파트장을 맡아 토지대장/비법인/조상땅 찾기 서비스 전반 개발을 주도했습니다.
+
+기술 스택: Java, Spring Boot, Spring Batch, Quartz, MyBatis, PostgreSQL, PostGIS, Oracle, Tibero, Jenkins, Linux
+
+주요 업무
+
+- Spring Batch 및 Quartz 기반 공간/속성 GIS 데이터 ETL 파이프라인 설계 및 구축
+- 데이터 전 생애주기 모니터링 현황판 및 DaaS 시스템 개발
+- 구 토지대장 대용량 Join 병목을 파티션 테이블 구조 개선으로 해소, PostGIS 공간 쿼리 기반 좌표 처리
+- Stored Procedure 기반 ETL 로직 설계, DW/DM 구축 및 Oracle/PostgreSQL/Tibero DB Migration
+- 정부24 온종일돌봄 서비스 및 GPKI 행정전자서명 인증 개발
+- MSA 아키텍처 기반 서비스 분리 설계 및 RESTful API 문서화
+
+성과
+
+- Spring Batch ETL 구축으로 공간정보 데이터 처리 효율성 향상 및 변동 자료 자동화
+- 파티션 구조 개선으로 대용량 Join 쿼리 성능 최적화
+- MSA 기반 다수 서비스 독립 배포 구조 확보
+- ETL 프로세스 표준화로 데이터 정합성 및 유지보수성 개선
