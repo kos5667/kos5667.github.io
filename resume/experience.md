@@ -9,14 +9,16 @@
 ### 2024.07 ~ 현재 | 플랫폼 고도화, 보안 강화, 인프라 개발
 
 - CRMS, CRMS 통계, 상담톡, 수신서버 등 대규모 서비스의 운영 안정성, 보안, 통계 신뢰성 개선을 담당
-- Java 21, Spring Boot 3.2 업그레이드 및 javax → jakarta 전환으로 기술 부채 해소와 장기 유지보수 기반 정비
+- CRMS-API Spring Boot 3.2 / Java 21 업그레이드 및 javax → jakarta 전환으로 기술 부채 해소와 장기 유지보수 기반 정비
 - Multi IDC, Multi Region 환경 설계 및 구축, GSLB 기반 트래픽 분산 구조 분석 및 개선
 - Kubernetes 클러스터 EOL 대응(버전/패키지 업그레이드), 운영 표준 및 배포 구조 정비
 - Server, Client, Batch 독립 배포 체계 확립, k8s YAML 표준화 및 CI/CD 개선으로 배포 안정성 강화
 - Multi Container Pod 구조를 Single Container Pod 구조로 전환해 리소스 효율과 확장성 확보
 - ISMS-P 인증 대응, Vault 기반 Secret 관리 및 암호화/인증 체계 정비
 - Vault 기반 키 관리와 AES-GCM 암호화를 적용해 서버 간 인증 및 민감정보 보호 모듈 구현
-- 통계 산식, 쿼리, 배치 파이프라인 개선과 과거 데이터 복구 체계 구축으로 정합성 이슈 감소
+- CRMS 통계 Spring Boot 3.5 / Java 21 마이그레이션: javax → jakarta 전환, Spring Security 6 대응(WebSecurityConfigurerAdapter 제거 → 람다 기반 DSL), RestTemplate → WebClient 전환, 외부 연동 재정비까지 전 레이어 단독 수행
+- CRMS 통계 배치 정합성 이슈 반복 해소: 그룹별 실적/상담원 현황/주간 집계 수치 불일치를 MyBatis SQL과 서비스 레이어 병행 추적해 보정, 특정 일자 누락 데이터 및 장기 미처리 문의 복구 로직 추가
+- CRMS 통계 Kubernetes 배포 전환: VM 기반 → DKOS 전환, Dockerfile/Vault 설정/Kustomize 오버레이 일괄 정비
 - 상담톡 코드/아키텍처 현대화(DDD Layered, TypeScript 전환, DI 기반 서비스 구조)로 결합도 감소 및 운영 품질 개선
 - Redis + Bucket4j Token Bucket 기반 분산 Rate Limiting 구현으로 Kubernetes 다중 Pod 환경에서 사용자별 어뷰징 감지 체계 구축, 차단 대신 알람 정책으로 정상 상담원 오차단 0건
 - 상담 종료 후 후처리 중복 실행 문제를 Redis 분산락(SET NX PX)으로 해결, 다중 Pod 환경에서 동일 채팅방 후처리 동시 실행 제어
@@ -24,7 +26,7 @@
 ### 2023.01 ~ 2024.06 | 서비스 대규모 개편 및 구조 개선, API 분리
 
 - CRMS 내 혼재된 API 기능을 분리하기 위해 RESTful 기반 CRMS-API 서버를 신규 설계 및 점진 이관, 본 시스템 부하 분산
-- Swagger 문서화와 공통 Exception Handler 도입으로 API 표준화 및 협업 효율 개선
+- Springdoc OpenAPI 기반 API 문서화 및 표준 응답 규격/공통 Exception Handler 도입으로 API 표준화 및 협업 효율 개선
 - ACL 강화, CORS 정책 정비, 민감 데이터 암호화 적용으로 보안 수준 강화
 - 상담 만족도 조사 1, 2차 개선, 대기 정보(대기 인원/시간) 제공, FAQ 기반 UX 개선으로 상담 플로우 고도화
 - FAQ 캐시 구조 도입 및 어뷰징 방어로 API 호출량 감소 및 안정성 확보
