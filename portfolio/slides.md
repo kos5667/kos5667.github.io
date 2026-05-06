@@ -62,7 +62,7 @@ Node.js / TypeScript / Express / Socket.io, Vue3
 
 ## Slide 04 | Multi IDC 고가용성 아키텍처 설계
 
-[ 이미지: Before / After 구조도 - Before: IDC-A에 트래픽 집중 / After: IPVS 기반 2차 분산으로 IDC-A, IDC-B 균등 분배 ]
+[ 이미지: Before / After 구조도 - Before: GSLB → IDC-A 집중 / After: GSLB → 3개 IDC → Kubernetes Client Service → Backend 균등 분배 ]
 
 배경
 
@@ -71,13 +71,21 @@ Multi IDC 도입 후 IDC-A에 트래픽 80% 이상이 집중되는 문제 발생
 
 원인 분석
 
-- DNS 캐싱으로 인해 클라이언트가 동일 IDC로 지속 라우팅
-- Ingress 레벨에서 트래픽 제어가 불가한 구조
+GSLB 분배 정책에는 두 가지 방식이 있음.
+
+- A (균등 분배): 트래픽을 모든 리전에 동일 비율로 분산 → 정상 동작
+- B (가중 분배): 한 리전에 집중적으로 트래픽을 보낸 뒤 일정 구간 후 다른 리전으로 전환
+
+B 정책 적용 구간에서 IDC-A로 집중된 트래픽이 DNS 캐싱과 맞물려
+클라이언트가 동일 IDC로 지속 라우팅되는 현상 발생.
+Kubernetes는 기본적으로 단일 Region을 고려한 구조로, Ingress 레벨에서 Region 간 트래픽 재분산이 불가.
 
 해결 방식
 
-- Kubernetes 내부 Client Service 추가
-- IPVS 기반 2차 트래픽 분산으로 IDC 간 부하 균등화
+- Ingress에 경로 기반 라우팅 추가: `/`는 Client Service(FE), `/api` `/tools`는 Server Service(BE)로 분리
+- Service 객체는 라우팅 규칙을 정의해 etcd에 저장하고, Control Plane이 이를 각 Node에 전파
+- 실제 트래픽 전달은 각 Node의 Cilium이 담당: Service 규칙에 따라 적절한 Pod IP로 전달
+- Cilium tunnel: vxlan 설정으로 다른 Node의 Pod로도 VXLAN 터널링을 통해 투명하게 라우팅
 
 결과
 
@@ -116,20 +124,26 @@ Multi IDC 도입 후 IDC-A에 트래픽 80% 이상이 집중되는 문제 발생
 Before
 
 - FE / BE가 하나의 Multi-Container Pod로 묶여 있어 둘 중 하나 변경 시 전체 재빌드
-- 빌드 시간: 5 ~ 8분
+- FE 변경 하나에도 BE 이미지를 함께 빌드하고 Pod 전체를 교체
 - 배포 단위가 크고 롤백 범위가 넓어 핫픽스 대응 속도 저하
 
 After
 
 - FE / BE를 Single-Container Pod로 분리해 독립 배포 구조로 전환
-- 빌드 시간: FE / BE 각 1분 이내
 - 카나리 / 블루그린 배포 전략 적용 가능한 구조 확보
+
+수치 비교
+
+|  | Build | Deploy | Resource |
+|---|---|---|---|
+| Before | FE 5~8분, BE 5~8분 | FE 3~5분, BE 3~5분 | FE 8개, BE 8개 |
+| After | FE 1분, BE 2~3분 | FE 1분, BE 2~3분 | FE 2개, BE 8개 유지 |
 
 효과
 
 - 핫픽스 및 장애 대응 리드타임 감소
-- 변경 영향 범위 축소로 배포 안정성 향상
-- 서비스별 독립 스케일링 가능
+- FE 리소스 8개 → 2개로 축소, 불필요한 자원 낭비 제거
+- 서비스별 독립 모니터링 및 스케일링 가능
 
 ---
 
@@ -219,12 +233,46 @@ CRMS 규모 확대로 API 기능이 혼재되면서 변경 영향 범위 증가.
 장기 운영으로 누적된 의존성 과다, 유지보수성 저하, 온보딩 난이도 증가.
 운영 중인 서비스를 중단 없이 개선해야 하는 제약.
 
+Before - 기술 중심 패키지 구조
+
+```
+src/
+├── controllers/    ← 비즈니스 로직이 컨트롤러에 혼재
+├── models/         ← I/O 모델, 도메인, 캐시가 같은 파일에 공존
+├── services/       ← 도메인 로직 없이 유스케이스 처리 집합소
+└── routes/
+```
+
+After - 도메인 중심 구조
+
+```
+src/
+├── domains/
+│   └── agent/
+│       ├── AgentEntity        ← 도메인 엔티티
+│       ├── AgentRepository    ← 도메인 저장소 인터페이스 (추상화)
+│       └── AgentEvents        ← 도메인 이벤트 정의
+├── application/
+│   └── agent/
+│       └── AgentApplicationService  ← 유스케이스 처리(트랜잭션 단위)
+├── infrastructure/
+│   └── repository/
+│       ├── persistence/       ← ORM 기반 저장소 구현
+│       └── caching/           ← Redis 기반 캐시 구현
+├── interfaces/                ← 입출력 인터페이스 모음
+│   └── AgentController        ← HTTP 핸들러
+└── routes/
+    ├── HttpRouter             ← RESTful HTTP 요청 라우팅
+    ├── GrpcRouter             ← gRPC 프로토콜 라우팅
+    └── SocketRouter           ← 실시간 Socket 이벤트 라우팅
+```
+
 전략: Strangler Fig 점진 이관
 
-- 변경 영향이 큰 영역부터 순차적으로 리팩토링
+- 변경 영향이 큰 영역부터 순차적으로 리팩토링, 운영 리스크 통제
 - 도메인 경계를 명확히 하고 인터페이스 기반으로 의존성 역전(DIP) 적용
+- 전역 exports 중심 구조 제거, DI 기반 서비스로 재구성
 - 테스트 커버리지를 핵심 플로우 중심으로 먼저 확보한 뒤 리팩토링 범위 확장
-- DDD Layered Architecture로 재설계, DI 기반 서비스 구조로 전환
 
 결과
 

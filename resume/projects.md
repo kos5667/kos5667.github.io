@@ -12,7 +12,7 @@
 
 주요 업무
 
-- GSLB 트래픽 편중: Multi IDC 도입 후 IDC-A에 트래픽 80% 이상 집중 → DNS 캐싱 원인 파악 후 Kubernetes 내부 Client Service를 추가해 IPVS 기반 2차 분산으로 균등화 달성
+- GSLB 트래픽 편중: Multi IDC 도입 후 IDC-A에 트래픽 80% 이상 집중 → DNS 캐싱 원인 파악 후 Ingress 경로 기반 라우팅과 Kubernetes Service(FE/BE 분리)를 추가해 클러스터 내부 Pod 단위 2차 분산으로 균등화 달성
 - 분산 Rate Limiting: Kubernetes 다중 Pod 환경에서 사용자별 어뷰징 감지를 위해 Redis + Bucket4j Token Bucket 알고리즘 설계, 차단 대신 알람 정책으로 정상 사용자 오차단 방지
 - 후처리 중복 실행: 상담 종료 후 다중 Pod 동시 실행 문제를 Redis 분산락(SET NX PX)으로 제어
 - 배포 구조 개선: Multi-Container Pod를 Single-Container Pod로 분리해 빌드 시간 5~8분에서 FE/BE 각 1분으로 단축
