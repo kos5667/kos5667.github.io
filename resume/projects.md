@@ -17,6 +17,7 @@
 - 후처리 중복 실행: 상담 종료 후 다중 Pod 동시 실행 문제를 Redis 분산락(SET NX PX)으로 제어
 - 배포 구조 개선: Multi-Container Pod를 Single-Container Pod로 분리해 빌드 시간 5~8분에서 FE/BE 각 1분으로 단축
 - 아키텍처 현대화: 기술 중심 패키지를 DDD Layered 구조로 전환, Strangler Fig 3단계 이관으로 운영 중단 없이 완료
+- 카테고리 트리 DFS 재귀 탐색을 BFS로 전환: 뎁스 증가에 따른 스택 오버플로우 리스크와 성능 저하를 제거, 뎁스 탐색 시간 ms 단위 단축
 
 성과
 
