@@ -1,29 +1,32 @@
 # 기술 스택
 
-## Backend
+### Backend
 
-Java 17+, Node.js (TypeScript)
-Spring Boot, Spring MVC, Spring Security 6, Spring Batch, Spring Data JPA, Spring Data Redis
-Express, Socket.io, Vue3
-JPA, QueryDSL, MyBatis
-JUnit 5, Mockito, Jest
-Gradle, Maven
+- **Language**: Java 17+, Node.js (TypeScript)
+- **Framework**: Spring Boot, Spring MVC, Spring Security 6, Spring Batch, Spring Data JPA, Spring Data
+- **ORM / Query**: JPA, QueryDSL, MyBatis
+- **Cache / Session / Lock**: Redis
+- **Messaging**: RabbitMQ (AMQP)
+- **Testing**: JUnit 4/5, Mockito, Jest
+- **Build**: Gradle, Maven
+- **RDBMS**: MySQL, PostgreSQL (PostGIS), Oracle, Tibero
+- **Others**: Express, Socket.io, Vue3
 
-## Database & Messaging
+### DevOps & Infra
 
-MySQL, PostgreSQL (PostGIS), Oracle, Tibero
-Redis (캐시, 세션, 분산락)
-RabbitMQ (AMQP)
+- **Container / Orchestration**: Docker, Kubernetes
+- **CI/CD**: Jenkins, Kargo(ArgoDD
+- **Secrets / Config**: Vault
+- **Resilience**: Bucket4j (Rate Limiting), ShedLock
+- **Deploy strategy**: Rolling, Canary, Blue-Green
+- **Architecture**: Multi IDC / Multi Region
+- **OS**: Linux (CentOS)
 
-## DevOps & Infra
+### Collaboration & Tools
 
-Kubernetes, Docker
-Jenkins
-Vault, Bucket4j, ShedLock
-배포 전략: Rolling, Canary, Blue-Green
-Multi IDC / Multi Region
-Linux (CentOS)
+- Git, Jira, Confluence
 
-## Collaboration & Tools
+### Security
 
-Git, Jira, Confluence
+- Vault 기반 시크릿 관리, AES-GCM 암호화
+- JWT, ACL, ISMS-P 대응
