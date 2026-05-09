@@ -15,7 +15,7 @@
 ### DevOps & Infra
 
 - **Container / Orchestration**: Docker, Kubernetes
-- **CI/CD**: Jenkins, Kargo(ArgoDD
+- **CI/CD**: Jenkins, Kargo(kakao ci/cd service), d2hub(image builder)
 - **Secrets / Config**: Vault
 - **Resilience**: Bucket4j (Rate Limiting), ShedLock
 - **Deploy strategy**: Rolling, Canary, Blue-Green
@@ -25,6 +25,7 @@
 ### Collaboration & Tools
 
 - Git, Jira, Confluence
+- Grafana, ELK
 
 ### Security
 

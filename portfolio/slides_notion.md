@@ -18,7 +18,22 @@ GitHub: https://github.com/kos5667
 
 ## Slide 02 | 커리어 여정
 
-> 🖼 이미지: 좌우 타임라인 - 재하정보기술(2020~2022) / Dktechin(2022~현재) 구간 표시, Dktechin 내 3개 페이즈 분기
+```
+2020.01 ── 재하정보기술 ───────────────── 2022.06
+               K-GeoPlatform 1차 / 2차
+               공간정보 / 공공행정 도메인
+
+2022.07 ── Dktechin ──────────────────────── 현재
+               │
+               ├─ Phase 1 (2022.07 ~ 2022.12)
+               │    통계 운영 기반 구축
+               │
+               ├─ Phase 2 (2023.01 ~ 2024.06)
+               │    서비스 개편 / CRMS-API 분리
+               │
+               └─ Phase 3 (2024.07 ~ 현재)
+                    플랫폼 고도화 / 보안 강화 / Multi IDC
+```
 
 ### 핵심 도메인 변화
 
@@ -35,7 +50,20 @@ GitHub: https://github.com/kos5667
 
 ## Slide 03 | 카카오 CS 플랫폼 개요 - 대규모 실시간 상담 시스템
 
-> 🖼 이미지: 전체 시스템 구성도 - 수신 서버(Spring Boot) / 상담 서버(Node.js) / Kubernetes / RabbitMQ / Redis / DB 관계
+```mermaid
+flowchart LR
+    Client([고객]) --> RecvServer["수신 서버\n(Spring Boot)"]
+    RecvServer -->|AMQP| MQ[(RabbitMQ)]
+    MQ --> CsTalk["상담 서버\n(Node.js)"]
+    CsTalk --> Redis[(Redis)]
+    CsTalk --> DB[(MySQL)]
+    CsTalk --> Agent([상담원])
+    RecvServer -.->|캐시| Redis
+    subgraph k8s[Kubernetes]
+        RecvServer
+        CsTalk
+    end
+```
 
 ### 서비스 소개
 
@@ -61,7 +89,33 @@ Node.js / TypeScript / Express / Socket.io, Vue3
 
 ## Slide 04 | Multi IDC 고가용성 아키텍처 설계
 
-> 🖼 이미지: Before / After 구조도 - Before: GSLB → IDC-A 집중 / After: GSLB → 3개 IDC → Kubernetes Client Service → Backend 균등 분배
+**Before**
+
+```mermaid
+flowchart TD
+    GSLB[GSLB] -->|80%+| A[IDC-A\n트래픽 집중]
+    GSLB -->|~10%| B[IDC-B]
+    GSLB -->|~10%| C[IDC-C]
+    style A fill:#f66,color:#fff
+```
+
+**After**
+
+```mermaid
+flowchart TD
+    GSLB[GSLB] --> A[IDC-A]
+    GSLB --> B[IDC-B]
+    GSLB --> C[IDC-C]
+    A --> IA[Ingress]
+    B --> IB[Ingress]
+    C --> IC[Ingress]
+    IA -->|"/ → FE"| FEA[FE Pods]
+    IA -->|"/api → BE"| BEA[BE Pods\nCilium 라우팅]
+    IB -->|"/ → FE"| FEB[FE Pods]
+    IB -->|"/api → BE"| BEB[BE Pods\nCilium 라우팅]
+    IC -->|"/ → FE"| FEC[FE Pods]
+    IC -->|"/api → BE"| BEC[BE Pods\nCilium 라우팅]
+```
 
 ### 배경
 
@@ -97,7 +151,30 @@ DNS 캐싱 우회를 위해 GSLB 레벨이 아닌 Kubernetes 클러스터 내부
 
 ## Slide 05 | 분산 환경 안정성 확보 - Rate Limiting & 분산락
 
-> 🖼 이미지: 두 문제를 나란히 - 왼쪽: 다중 Pod Rate Limiting 흐름(Redis 공유 상태), 오른쪽: 분산락으로 후처리 단일 실행 제어 흐름
+**Rate Limiting**
+
+```mermaid
+flowchart LR
+    User([사용자]) --> P1[Pod 1]
+    User --> P2[Pod 2]
+    User --> P3[Pod 3]
+    P1 -->|Token 차감| Redis["Redis\nToken Bucket"]
+    P2 -->|Token 차감| Redis
+    P3 -->|Token 차감| Redis
+    Redis -->|임계값 초과| Alert[알람]
+```
+
+**분산락**
+
+```mermaid
+flowchart LR
+    Event[상담 종료\n이벤트] --> P1[Pod 1]
+    Event --> P2[Pod 2]
+    P1 -->|SET NX PX| Lock["Redis\n분산락"]
+    P2 -->|SET NX PX| Lock
+    Lock -->|획득 성공| Process[후처리 실행]
+    Lock -->|획득 실패| Skip[스킵]
+```
 
 ### 문제 1. 어뷰징 감지 - 다중 Pod 환경에서 사용자별 요청 제어
 
@@ -125,7 +202,17 @@ DNS 캐싱 우회를 위해 GSLB 레벨이 아닌 Kubernetes 클러스터 내부
 
 ## Slide 06 | 배포 구조 개선 - 단위 분리와 무중단 운영
 
-> 🖼 이미지: Before / After Pod 구조 - Before: FE+BE 하나의 Pod / After: FE Pod, BE Pod 분리, 빌드 시간 비교
+```mermaid
+flowchart LR
+    subgraph Before["Before (Multi-Container Pod)"]
+        B1["[ FE + BE ]\n하나의 Pod"]
+    end
+    subgraph After["After (Single-Container Pod)"]
+        A1["[ FE ]"]
+        A2["[ BE ]"]
+    end
+    Before -->|분리| After
+```
 
 ### 배경
 
@@ -161,7 +248,13 @@ DNS 캐싱 우회를 위해 GSLB 레벨이 아닌 Kubernetes 클러스터 내부
 
 ## Slide 07 | 보안 강화 - Vault & AES-GCM 암호화 체계
 
-> 🖼 이미지: Vault 시크릿 관리 흐름 - 코드 → Vault 런타임 주입 → 서비스 간 AES-GCM 암호화 통신
+```mermaid
+flowchart LR
+    Code[애플리케이션] -->|시크릿 요청| Vault[(Vault)]
+    Vault -->|런타임 주입\n계정정보 / 암호화 키| Code
+    Code -->|AES-GCM 암호화| SvcB[서버 B]
+    SvcB -->|복호화 / 인증| Code
+```
 
 ### 수행 내용
 
@@ -185,7 +278,16 @@ DNS 캐싱 우회를 위해 GSLB 레벨이 아닌 Kubernetes 클러스터 내부
 
 ## Slide 08 | 통계 데이터 정합성 - 운영 판단 오류 리스크 제거
 
-> 🖼 이미지: 배치 파이프라인 흐름도 - 집계 배치 실행 → 수치 불일치 감지 → SQL/서비스 레이어 추적 → 보정 로직 적용
+```mermaid
+flowchart TD
+    Batch[집계 배치 실행] --> Diff{수치 불일치?}
+    Diff -->|없음| Done[정상 완료]
+    Diff -->|발생| Trace[조회 SQL / 배치 SQL\n항목별 대조]
+    Trace --> Find[불일치 구간 특정]
+    Find --> Pattern[스킵 패턴 확인\n누락 일자 파악]
+    Pattern --> Fix[복구 로직 추가\n보정 처리 삽입]
+    Fix --> Done
+```
 
 ### 배경
 
@@ -213,7 +315,15 @@ DNS 캐싱 우회를 위해 GSLB 레벨이 아닌 Kubernetes 클러스터 내부
 
 ## Slide 09 | CRMS 서비스 현대화 - 마이그레이션 / 구조 분리
 
-> 🖼 이미지: 전환 항목 체크리스트 - 레거시 VM → Kubernetes, 단일 서버 → API 분리
+| 항목 | Before | After |
+|---|---|---|
+| 런타임 환경 | VM 기반 | Kubernetes (DKOS) |
+| 프레임워크 | Spring Boot (EOL) | Spring Boot 3.5 / Java 21 |
+| 네임스페이스 | javax | jakarta |
+| Security 설정 | WebSecurityConfigurerAdapter | 람다 기반 DSL |
+| HTTP 클라이언트 | RestTemplate | WebClient |
+| API 구조 | CRMS 단일 서버 혼재 | CRMS-API 분리 서버 |
+| 시크릿 관리 | 소스 내 평문 | Vault 런타임 주입 |
 
 ### 배경
 
@@ -243,7 +353,20 @@ API 기능 혼재로 변경 영향 범위도 계속 확대되는 상황.
 
 ## Slide 10 | 아키텍처 현대화 - 운영 중단 없는 레거시 개선 전략
 
-> 🖼 이미지: Strangler Fig 패턴 단계별 진행 - 기존 구조에서 도메인 단위로 점진 교체되는 흐름
+```mermaid
+flowchart LR
+    subgraph S1["1단계 - 현 상태"]
+        L1["레거시\n전체 운영"]
+    end
+    subgraph S2["2단계 - 점진 이관"]
+        L2["레거시\n일부 유지"]
+        N2["신규 도메인\n병행 운영"]
+    end
+    subgraph S3["3단계 - 완료"]
+        N3["도메인 중심 구조\n전환 완료"]
+    end
+    S1 --> S2 --> S3
+```
 
 ### 배경
 
@@ -301,7 +424,13 @@ src/
 
 ## Slide 11 | K-GeoPlatform - ETL 파이프라인 & 대용량 데이터 처리
 
-> 🖼 이미지: ETL 파이프라인 흐름도 - 데이터 수집(크롤링/변동) → Spring Batch 처리 → DW 적재 → 시각화
+```mermaid
+flowchart LR
+    Collect["데이터 수집\n크롤링 / 변동 감지"] --> Batch["Spring Batch\nQuartz 스케줄링"]
+    Batch --> Transform["변환 / 정제\nStored Procedure"]
+    Transform --> DW[("DW / DM\n적재")]
+    DW --> Dashboard["시각화\n대시보드"]
+```
 
 ### 프로젝트 개요
 
@@ -324,8 +453,6 @@ Java, Spring Boot, Spring Batch, Quartz, MyBatis, PostgreSQL, PostGIS, Oracle, T
 ---
 
 ## Slide 12 | 기술 스택 & 핵심 역량
-
-> 🖼 이미지: 기술 스택 시각화 - 분류별 아이콘 또는 그리드 레이아웃
 
 ### Backend
 
@@ -357,22 +484,28 @@ Git, Jira, Confluence
 
 ## Slide 13 | 지향점
 
+### 개선 과제를 스스로 찾습니다
+
+이슈가 들어오기를 기다리기보다, 서비스와 코드를 직접 관찰하며
+잠재적인 리스크와 개선 포인트를 먼저 파악합니다.
+방향을 고민하고 설계해 실행으로 이어지는 방식으로 일합니다.
+
+### 구현보다 원인을 먼저 봅니다
+
+복잡한 구현이 필요한 문제보다, 현상의 원인을 명확히 파악하고
+현재 상황에서 최적의 개선 방향을 설계하는 것을 우선합니다.
+
 ### 운영 리스크를 먼저 생각합니다
 
 기능을 빠르게 만드는 것보다, 장애가 났을 때 얼마나 빠르게 원인을 파악하고
 영향 범위를 줄일 수 있는지를 먼저 고려합니다.
-
-### 구조가 설명을 대신합니다
-
-도메인 경계가 명확하고 의존성이 정리된 코드는 문서 없이도 읽힙니다.
-설계 판단과 그 근거를 남기는 습관을 유지합니다.
 
 ### 운영과 개발을 함께 봅니다
 
 실서비스 운영 경험을 바탕으로 모니터링, 장애 대응, 배포 전략까지
 개발과 운영을 하나의 흐름으로 다룹니다.
 
-### 구현보다 원인을 먼저 봅니다
+### 구조가 설명을 대신합니다
 
-복잡한 구현이 필요한 문제보다, 현상의 원인을 명확히 파악하고
-현재 상황에서 최적의 개선 방향을 설계하는 것을 우선합니다.
+도메인 경계가 명확하고 의존성이 정리된 코드는 문서 없이도 읽힙니다.
+설계 판단과 그 근거를 남기는 습관을 유지합니다(물론 주석과 문서도 작성합니다!).
