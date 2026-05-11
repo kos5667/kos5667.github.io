@@ -79,6 +79,9 @@ GSLB 분배 정책에는 두 가지 방식이 있음.
 B 정책 적용 구간에서 IDC-A로 트래픽이 집중되고, DNS 캐싱으로 인해
 정책 전환 후에도 클라이언트가 IDC-A로 계속 라우팅되는 현상 지속.
 
+GSLB A정책으로 전환하면 해소되지만, 운영에서 검증되지 않은 정책 변경은 리스크가 컸습니다.
+클러스터 내부에서 처리 가능하다고 판단해 Kubernetes 레벨에서 트래픽을 재분산하는 방향을 선택했습니다.
+
 해결 방식
 
 DNS 캐싱 우회를 위해 GSLB 레벨이 아닌 Kubernetes 클러스터 내부에서 트래픽을 재분산.
@@ -136,13 +139,13 @@ DNS 캐싱 우회를 위해 GSLB 레벨이 아닌 Kubernetes 클러스터 내부
 
 Before
 
-- FE / BE가 하나의 Multi-Container Pod로 묶여 있어 둘 중 하나 변경 시 전체 재빌드
+- FE / BE / Batch가 하나의 Multi-Container Pod로 묶여 있어 하나만 변경해도 전체 재빌드
 - FE 변경 하나에도 BE 이미지를 함께 빌드하고 Pod 전체를 교체
 - 배포 단위가 크고 롤백 범위가 넓어 핫픽스 대응 속도 저하
 
 After
 
-- FE / BE를 Single-Container Pod로 분리해 독립 배포 구조로 전환
+- FE / BE / Batch를 Single-Container Pod로 분리해 독립 배포 구조로 전환
 - 카나리 / 블루그린 배포 전략 적용 가능한 구조 확보
 
 수치 비교
